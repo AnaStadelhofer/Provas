@@ -1,0 +1,36 @@
+package Provas.ProvaDoisss;
+import java.util.ArrayList;
+public class Receita {
+    int idReceita;
+    String nomeReceita;
+    String etapaDescricao;
+    int numEtapas;
+    Chef chef;
+    Padaria padaria;
+
+    ArrayList<Padaria> padarias = new ArrayList<>();
+
+    public Receita(
+        int idReceita,
+        String nomeReceita,
+        String etapaDescricao,
+        int numEtapas,
+        Chef chef,
+        Padaria padaria
+    ) {
+        this.idReceita = idReceita;
+        this.nomeReceita = nomeReceita;
+        this.etapaDescricao = etapaDescricao;
+        this.numEtapas = numEtapas;
+        this.chef = chef;
+        chef.adicionarReceitaPadocks(this);
+        this.padaria = padaria;
+        padaria.adicionarReceita(this);
+    }
+
+    public void adicionarReceita(Padaria padaria) {
+        this.padarias.add(padaria);
+        chef.adicionarReceitaPadocks(this);
+        padaria.adicionarReceita(this);
+    }
+}
