@@ -15,8 +15,8 @@ public class Receita {
         String nomeReceita,
         String etapaDescricao,
         int numEtapas,
-        Chef chef,
-        Padaria padaria
+        Chef chef
+        
     ) {
         this.idReceita = idReceita;
         this.nomeReceita = nomeReceita;
@@ -24,8 +24,6 @@ public class Receita {
         this.numEtapas = numEtapas;
         this.chef = chef;
         chef.adicionarReceitaPadocks(this);
-        this.padaria = padaria;
-        padaria.adicionarReceita(this);
     }
 
     public void adicionarReceita(Padaria padaria) {

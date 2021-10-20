@@ -77,25 +77,43 @@ public class Padaria {
                            + ", CPF: "+chefTres.cpfChef
                            + ", Data de nascimento: "+chefTres.dataNascimento +"\n");
 
-        Receita receitaUm = new Receita(10, "Feijoada", "1- Cozinhar feijão, 2- Colocar carne, 3- Comer", 1, chefUm, padariaDois);
-        Receita receitaDois = new Receita(1, "Pudim", "1- Bater mistura no liquidificador, 2- Colocar no forno em banho maria", 2, chefUm, padariaDois);
-        Receita receitaTres = new Receita(10, "Sonho", "1- Fazer massa, 2- Fritar, 3- Enrolar em açucar", 3, chefUm, padariaDois);
+        Receita receitaUm = new Receita(10, "Feijoada", "1- Cozinhar feijão, 2- Colocar carne, 3- Comer", 1, chefUm);
+        Receita receitaDois = new Receita(1, "Pudim", "1- Bater mistura no liquidificador, 2- Colocar no forno em banho maria", 2, chefUm);
+        Receita receitaTres = new Receita(10, "Sonho", "1- Fazer massa, 2- Fritar, 3- Enrolar em açucar", 3, chefUm);
 
-        Receita receitaQuatro = new Receita(10, "Sonho de valsa", "Enrolar amendoim em chocolate", 4, chefDois, padariaDois);
-        Receita receitaCinco = new Receita(10, "Torta salgada", "Deixar na geladeira", 5, chefDois, padariaDois);
-        Receita receitaSeis = new Receita(10, "Bolo de cenoura", "Assar", 6, chefDois, padariaUm);
+        Receita receitaQuatro = new Receita(10, "Sonho de valsa", "Enrolar amendoim em chocolate", 4, chefDois);
+        Receita receitaCinco = new Receita(10, "Torta salgada", "Deixar na geladeira", 5, chefDois);
+        Receita receitaSeis = new Receita(10, "Bolo de cenoura", "Assar", 6, chefDois);
 
-        Receita receitaSete = new Receita(10, "Brigadeiro", "Panela", 7, chefTres, padariaUm);
-        Receita receitaOito = new Receita(10, "Beijinho", "Panela", 8, chefTres, padariaUm);
-        Receita receitaNove = new Receita(10, "Cupcake", "Assar", 9, chefTres, padariaUm);
-        Receita receitaDez = new Receita(10, "Risole", "Fritar", 10, chefTres, padariaUm);
+        Receita receitaSete = new Receita(10, "Brigadeiro", "Panela", 7, chefTres);
+        Receita receitaOito = new Receita(10, "Beijinho", "Panela", 8, chefTres);
+        Receita receitaNove = new Receita(10, "Cupcake", "Assar", 9, chefTres);
+        Receita receitaDez = new Receita(10, "Risole", "Fritar", 10, chefTres);
 
-        Receita receitaOnze = new Receita(10, "Coxinha", "Fritar", 10, chefTres, padariaTres);
-        Receita receitaDoze = new Receita(10, "Sorvete", "Fritar", 10, chefTres, padariaTres);
-        Receita receitaTreze = new Receita(10, "Geladinho", "Fritar", 10, chefTres, padariaTres);
-        Receita receitaQuatorze = new Receita(10, "Empadão", "Fritar", 10, chefTres, padariaTres);
-        Receita receitaQuinze = new Receita(10, "Balde de sorvete", "Juntar varias", 10, chefTres, padariaTres);
+        Receita receitaOnze = new Receita(10, "Coxinha", "Fritar", 10, chefTres);
+        Receita receitaDoze = new Receita(10, "Sorvete", "Fritar", 10, chefTres);
+        Receita receitaTreze = new Receita(10, "Geladinho", "Fritar", 10, chefTres);
+        Receita receitaQuatorze = new Receita(10, "Empadão", "Fritar", 10, chefTres);
+        Receita receitaQuinze = new Receita(10, "Balde de sorvete", "Juntar varias", 10, chefTres);
         
+        padariaUm.adicionarPadaria(receitaUm);
+        padariaUm.adicionarPadaria(receitaDois);
+        padariaUm.adicionarPadaria(receitaTres);
+        padariaUm.adicionarPadaria(receitaQuatro);
+        padariaUm.adicionarPadaria(receitaCinco);
+
+        padariaDois.adicionarPadaria(receitaSeis);
+        padariaDois.adicionarPadaria(receitaSete);
+        padariaDois.adicionarPadaria(receitaOito);
+        padariaDois.adicionarPadaria(receitaNove);
+        padariaDois.adicionarPadaria(receitaDez);
+
+        padariaTres.adicionarPadaria(receitaOnze);
+        padariaTres.adicionarPadaria(receitaDoze);
+        padariaTres.adicionarPadaria(receitaTreze);
+        padariaTres.adicionarPadaria(receitaQuatorze);
+        padariaTres.adicionarPadaria(receitaQuinze);
+
         //////////// Imprimir receita de cada chef ////////////////
         System.out.println("\n =========== Receita do Chef Um ===========");
         for (Receita receita : chefUm.receitasPadock) {
@@ -132,6 +150,9 @@ public class Padaria {
         System.out.println("\n\n");
     }
     public void adicionarReceita(Receita receita) {
+        this.receitas.add(receita);
+    }
+    public void adicionarPadaria(Receita receita) {
         this.receitas.add(receita);
     }
     
