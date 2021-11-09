@@ -6,7 +6,6 @@ public class Receita {
     String etapaDescricao;
     int numEtapas;
     Chef chef;
-    Padaria padaria;
 
     ArrayList<Padaria> padarias = new ArrayList<>();
 
@@ -28,7 +27,6 @@ public class Receita {
 
     public void adicionarReceita(Padaria padaria) {
         this.padarias.add(padaria);
-        chef.adicionarReceitaPadocks(this);
         padaria.adicionarReceita(this);
     }
 }

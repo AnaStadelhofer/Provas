@@ -33,6 +33,10 @@ public class Padaria {
             this
             );
     }
+
+    public void adicionarReceita(Receita receita) {
+        this.receitas.add(receita);
+    }
     public static void main(String[] args) {
 
         ///////////// Padarias ///////////
@@ -96,23 +100,23 @@ public class Padaria {
         Receita receitaQuatorze = new Receita(10, "Empadão", "Fritar", 10, chefTres);
         Receita receitaQuinze = new Receita(10, "Balde de sorvete", "Juntar varias", 10, chefTres);
         
-        padariaUm.adicionarPadaria(receitaUm);
-        padariaUm.adicionarPadaria(receitaDois);
-        padariaUm.adicionarPadaria(receitaTres);
-        padariaUm.adicionarPadaria(receitaQuatro);
-        padariaUm.adicionarPadaria(receitaCinco);
+       padariaUm.adicionarReceita(receitaUm);
+        padariaUm.adicionarReceita(receitaDois);
+        padariaUm.adicionarReceita(receitaTres);
+        padariaUm.adicionarReceita(receitaQuatro);
+        padariaUm.adicionarReceita(receitaCinco);
 
-        padariaDois.adicionarPadaria(receitaSeis);
-        padariaDois.adicionarPadaria(receitaSete);
-        padariaDois.adicionarPadaria(receitaOito);
-        padariaDois.adicionarPadaria(receitaNove);
-        padariaDois.adicionarPadaria(receitaDez);
+        padariaDois.adicionarReceita(receitaSeis);
+        padariaDois.adicionarReceita(receitaSete);
+        padariaDois.adicionarReceita(receitaOito);
+        padariaDois.adicionarReceita(receitaNove);
+        padariaDois.adicionarReceita(receitaDez);
 
-        padariaTres.adicionarPadaria(receitaOnze);
-        padariaTres.adicionarPadaria(receitaDoze);
-        padariaTres.adicionarPadaria(receitaTreze);
-        padariaTres.adicionarPadaria(receitaQuatorze);
-        padariaTres.adicionarPadaria(receitaQuinze);
+        padariaTres.adicionarReceita(receitaOnze);
+        padariaTres.adicionarReceita(receitaDoze);
+        padariaTres.adicionarReceita(receitaTreze);
+        padariaTres.adicionarReceita(receitaQuatorze);
+        padariaTres.adicionarReceita(receitaQuinze);
 
         //////////// Imprimir receita de cada chef ////////////////
         System.out.println("\n =========== Receita do Chef Um ===========");
@@ -148,12 +152,6 @@ public class Padaria {
             System.out.println("Nome receita: " + receita.nomeReceita);
         }
         System.out.println("\n\n");
-    }
-    public void adicionarReceita(Receita receita) {
-        this.receitas.add(receita);
-    }
-    public void adicionarPadaria(Receita receita) {
-        this.receitas.add(receita);
     }
     
 }
