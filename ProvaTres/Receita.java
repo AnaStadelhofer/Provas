@@ -22,6 +22,34 @@ public class Receita {
         chef.adicionarReceitaPadocks(this);
     }
 
+    // get e set dos arraylist
+
+    public void setMercado(Mercado mercado) {
+        this.mercados.add(mercado);
+    }
+
+    public ArrayList<Mercado> getMercado() {
+        return this.mercados;
+    }
+
+    public void setCliente(Cliente clientes) {
+        this.clientes.add(clientes);
+    }
+
+    public ArrayList<Cliente> getCliente() {
+        return this.clientes;
+    }
+
+    public void setPadaria(Padaria padarias) {
+        this.padarias.add(padarias);
+    }
+
+    public ArrayList<Padaria> getPadaria() {
+        return this.padarias;
+    }
+
+    /// fim dos get e set dos array
+
     public void setIdReceita(int idReceita) {
         this.idReceita = idReceita;
     }
@@ -85,7 +113,8 @@ public class Receita {
             return false;
         }
         Receita receita = (Receita) obj;
-        return Objects.equals(this.getIdReceita(), receita.getIdReceita());
+        return this.getChef().getCpf() == receita.getChef().getCpf()
+        && this.getIdReceita() == receita.getIdReceita();
     }
 
     @Override

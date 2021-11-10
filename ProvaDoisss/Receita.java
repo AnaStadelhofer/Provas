@@ -9,14 +9,7 @@ public class Receita {
 
     ArrayList<Padaria> padarias = new ArrayList<>();
 
-    public Receita(
-        int idReceita,
-        String nomeReceita,
-        String etapaDescricao,
-        int numEtapas,
-        Chef chef
-        
-    ) {
+    public Receita(int idReceita, String nomeReceita, String etapaDescricao, int numEtapas, Chef chef) {
         this.idReceita = idReceita;
         this.nomeReceita = nomeReceita;
         this.etapaDescricao = etapaDescricao;

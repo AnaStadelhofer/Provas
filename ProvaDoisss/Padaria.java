@@ -100,7 +100,7 @@ public class Padaria {
         Receita receitaQuatorze = new Receita(10, "Empadão", "Fritar", 10, chefTres);
         Receita receitaQuinze = new Receita(10, "Balde de sorvete", "Juntar varias", 10, chefTres);
         
-       padariaUm.adicionarReceita(receitaUm);
+        padariaUm.adicionarReceita(receitaUm);
         padariaUm.adicionarReceita(receitaDois);
         padariaUm.adicionarReceita(receitaTres);
         padariaUm.adicionarReceita(receitaQuatro);

@@ -23,7 +23,13 @@ public class Padaria extends Estabelecimentos {
         this.receitas.add(receita);
     }
     
-    
+    public void setReceita(Receita receita) {
+        this.receitas.add(receita);
+    }
+
+    public ArrayList<Receita> getReceita() {
+        return this.receitas;
+    }
 
     @Override
     public boolean equals(Object obj) {
@@ -41,7 +47,8 @@ public class Padaria extends Estabelecimentos {
 		return "\n O id da padaria é: " + getIdEsta() +
                "\n O nome da padaria é: " + getNome() +
                "\n Data de inauguração: " + getDataDeAbertura() +
-               "\n Horario de funcionamento: " + getHorario() + "\n";
+               "\n Horario de funcionamento: " + getHorario() +
+               "\n Endereço: " + getEndereco();
     }
 
 }
