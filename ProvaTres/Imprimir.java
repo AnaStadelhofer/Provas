@@ -75,7 +75,7 @@ public class Imprimir {
         clienteUm.adicionarReceitaCliente(receitaDoze);
         clienteUm.adicionarReceitaCliente(receitaSeis);
         clienteDois.adicionarReceitaCliente(receitaUm);
-        clienteDois.adicionarReceitaCliente(receitaDoze)
+        clienteDois.adicionarReceitaCliente(receitaDoze);
         clienteTres.adicionarReceitaCliente(receitaUm);
         clienteTres.adicionarReceitaCliente(receitaCinco);
         clienteTres.adicionarReceitaCliente(receitaSeis);
