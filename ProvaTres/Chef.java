@@ -23,6 +23,14 @@ public class Chef extends Pessoas{
         this.receitasPadock.add(receita);
     }
 
+    public void setReceita(Receita receita) {
+        this.receitasPadock.add(receita);
+    }
+
+    public ArrayList<Receita> getReceita() {
+        return this.receitasPadock;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj == this)

@@ -23,6 +23,14 @@ public class Mercado extends Estabelecimentos{
         this.receitasMercado.add(receita);
     }
 
+    public void setReceita(Receita receita) {
+        this.receitasMercado.add(receita);
+    }
+
+    public ArrayList<Receita> getReceita() {
+        return this.receitasMercado;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj == this)

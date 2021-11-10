@@ -45,6 +45,14 @@ public class Estabelecimentos {
         return dataDeAbertura;
     }
 
+    public void setEndereco(Endereco endereco){
+        this.endereco = endereco;
+    }
+
+    public Endereco getEndereco(){
+        return endereco;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj == this)

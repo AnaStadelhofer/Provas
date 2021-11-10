@@ -23,6 +23,14 @@ public class Cliente extends Pessoas {
         this.receitasCliente.add(receita);
     }
 
+    public void setReceita(Receita receita) {
+        this.receitasCliente.add(receita);
+    }
+
+    public ArrayList<Receita> getReceita() {
+        return this.receitasCliente;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj == this)
