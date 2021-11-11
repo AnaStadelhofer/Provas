@@ -62,10 +62,10 @@ public class Pessoas {
     }
 
     public String toString(){
-		return " O id da pessoa é: " + getId() +
+		return "\n O id da pessoa é: " + getId() +
                 "\n O nome da pessoa é: " + getNome() +
                 "\n O cpf é: " + getCpf() +
-                "\n A data de nascimento é: " + getDataNascimento() + "\n";
+                "\n A data de nascimento é: " + getDataNascimento() + "\n\n";
 	}
 
 }

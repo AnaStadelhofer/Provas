@@ -68,6 +68,6 @@ public class Estabelecimentos {
     public String toString(){
 		return "\n O id da padaria é: " + getIdEsta() +
                "\n O nome da padaria é: " + getNome() +
-               "\n Data de inauguração: " + getDataDeAbertura()  + "\n";
+               "\n Data de inauguração: " + getDataDeAbertura()  + "\n\n";
     }
 }

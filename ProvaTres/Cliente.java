@@ -44,10 +44,11 @@ public class Cliente extends Pessoas {
 
     @Override
     public String toString(){
-		return " O nome do cliente é: " + getNome() +
+		return "\n O nome do cliente é: " + getNome() +
                 "\n O cpf é: " + getCpf() +
                 "\n A data de nascimento é: " + getDataNascimento() + 
-                "\n Seu telefone é: "+ getTelefone() +"\n";
+                "\n Seu telefone é: "+ getTelefone() +
+                "\n =========== Receitas Compradas =========== \n " + getReceita() + "\n\n";
 	}
 
 }

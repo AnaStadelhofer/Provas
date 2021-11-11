@@ -44,9 +44,10 @@ public class Chef extends Pessoas{
 
     @Override
     public String toString(){
-		return " O nome do chef é: " + getNome() +
+		return "\n O nome do chef é: " + getNome() +
                 "\n O cpf é: " + getCpf() +
                 "\n A data de nascimento é: " + getDataNascimento() + 
-                "\n Sua especialidade é: "+ getEspecialidade() + "\n\n";
+                "\n Sua especialidade é: "+ getEspecialidade() +
+                "\n =========== Receitas do Chef =========== \n" + getReceita() + "\n\n"; 
 	}
 }
