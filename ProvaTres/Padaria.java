@@ -48,7 +48,8 @@ public class Padaria extends Estabelecimentos {
                "\n O nome da padaria é: " + getNome() +
                "\n Data de inauguração: " + getDataDeAbertura() +
                "\n Horario de funcionamento: " + getHorario() +
-               "\n Endereço: " + getEndereco();
+               "\n Endereço: " + getEndereco() +
+               "\n Receitas: " + getReceita() + "\n\n";
     }
 
 }

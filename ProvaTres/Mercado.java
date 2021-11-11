@@ -47,6 +47,6 @@ public class Mercado extends Estabelecimentos{
 		return "\n O id da padaria é: " + getIdEsta() +
                "\n O nome da padaria é: " + getNome() +
                "\n Data de inauguração: " + getDataDeAbertura() +
-               "\n Promoção: " + getPromocao() + "\n";
+               "\n =========== Promoções =========== \n " + getPromocao() + "\n\n";
     }
 }

@@ -103,48 +103,6 @@ public class Imprimir {
         System.out.println(mercadoDois);
         System.out.println(mercadoTres);
 
-        //////////// Imprimir receita de cada chef ////////////////
-        System.out.println("\n\n\n\n =========== Receita do Chef Um ===========");
-        for (Receita receita : chefUm.receitasPadock) {
-             System.out.println(receita);
-        }
-        System.out.println("\n\n\n\n =========== Receita do Chef Dois ===========");
-        for (Receita receita : chefDois.receitasPadock) {
-            System.out.println(receita);
-        }
-        System.out.println("\n\n\n\n =========== Receita do Chef Tres ===========");
-        for (Receita receita : chefTres.receitasPadock) {
-            System.out.println(receita);
-        }
-        System.out.println("\n\n\n\n");
-
-        //////////// Imprimir receita de cada padaria ////////////////
-        System.out.println("\n\n\n\n =========== Receitas da padaria Um ===========");
-        for (Receita receita : padariaUm.receitas) {
-            System.out.println(receita);
-        }
-        System.out.println("\n\n\n\n =========== Receitas da padaria Dois ===========");
-        for (Receita receita : padariaDois.receitas) {
-            System.out.println(receita);
-        }
-        System.out.println("\n\n\n\n =========== Receitas da padaria Três ===========");
-        for (Receita receita : padariaTres.receitas) {
-            System.out.println(receita);
-        }
-
-        //////////// Imprimir receita qu cada cliente comprou ////////////////
-        System.out.println("\n\n\n\n =========== Receitas do cliente Um ===========");
-        for (Receita receita : clienteUm.receitasCliente) {
-            System.out.println(receita);
-        }
-        System.out.println("\n\n\n\n =========== Receitas do cliente Dois ===========");
-        for (Receita receita : clienteDois.receitasCliente) {
-            System.out.println(receita);
-        }
-        System.out.println("\n\n\n\n =========== Receitas do cliente Três ===========");
-        for (Receita receita : clienteTres.receitasCliente) {
-            System.out.println(receita);
-        }
         System.out.println("\n\n\n\n");
     }
 }

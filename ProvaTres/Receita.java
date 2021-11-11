@@ -122,8 +122,7 @@ public class Receita {
 		return "\n O id da receita: " + getIdReceita() +
                "\n O nome da receita: " + getNomeReceita() +
                "\n Etapas: " + getEtapaDescricao() +
-               "\n Número de etapas: " + getNumEtapas() + 
-               "\n Chef da receita: " + chef.getNome();
+               "\n Número de etapas: " + getNumEtapas() + "\n\n"; 
     }
 
 }
