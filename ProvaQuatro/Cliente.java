@@ -53,12 +53,6 @@ public class Cliente extends Pessoas {
         return Objects.equals(this.getCpf(), cliente.getCpf());
     }
 
-    public String carteira(){
-        return "\n O nome do cliente é: " + getNome() +
-        "\n O cpf é: " + getCpf() +
-        "\n A data de nascimento é: " + getDataNascimento();
-    }
-
     @Override
     public String toString(){
 		return "Id do cliente: " + getId() + 

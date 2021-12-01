@@ -62,13 +62,6 @@ public class Chef extends Pessoas{
         return Objects.equals(this.getCpf(), chef.getCpf());
     }
 
-    public String carteira(){
-        return "\n O nome do chef é: " + getNome() +
-                "\n O cpf é: " + getCpf() +
-                "\n A data de nascimento é: " + getDataNascimento() +
-                "\n Salario: " + getSalario();
-    }
-
     @Override
     public String toString(){
 		return "\n O id do chef é: " + getId() +
