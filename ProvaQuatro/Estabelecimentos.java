@@ -1,4 +1,4 @@
-package Provas.ProvaTres;
+
 import java.util.Objects;
 public abstract class Estabelecimentos {
     private int idEsta;

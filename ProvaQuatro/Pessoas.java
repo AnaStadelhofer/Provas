@@ -1,12 +1,13 @@
-package Provas.ProvaTres;
+
+import java.sql.Date;
 import java.util.Objects;
 public abstract class Pessoas {
     private int id;
     private String nome;
     private String cpf;
-    private String dataNascimento;
+    private Date dataNascimento;
 
-    protected Pessoas(int id, String nome, String cpf, String dataNascimento){
+    protected Pessoas(int id, String nome, String cpf, Date dataNascimento){
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;
@@ -37,11 +38,11 @@ public abstract class Pessoas {
         this.cpf = cpf;
     }
 
-    public void setDataNascimento(String dataNascimento) {
+    public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
-    public String getDataNascimento() {
+    public Date getDataNascimento() {
         return dataNascimento;
     }
 

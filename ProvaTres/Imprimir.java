@@ -11,9 +11,9 @@ public class Imprimir {
 
         //////////// Chef ///////////////
         
-        Chef chefUm = new Chef(10, "Sebastião Nathan Otávio Rodrigues", "214.130.351-67", "10/02/1998", "Padeiro");
-        Chef chefDois = new Chef(11, "Vitor Bryan Tomás Vieira", "406.815.583-69", "08/02/1987", "Confeiteiro");
-        Chef chefTres = new Chef(12, "Josefa Luciana Drumond", "579.320.937-91", "30/06/1995", "Decorador de Bolo");
+        Chef chefUm = new Chef(10, "Sebastião Nathan Otávio Rodrigues", "214.130.351-67", "10/02/1998", "Padeiro", 1500.00);
+        Chef chefDois = new Chef(11, "Vitor Bryan Tomás Vieira", "406.815.583-69", "08/02/1987", "Confeiteiro", 1500.00);
+        Chef chefTres = new Chef(12, "Josefa Luciana Drumond", "579.320.937-91", "30/06/1995", "Decorador de Bolo", 1500.00);
 
         //////////// Cliente ///////////////
 
@@ -84,9 +84,9 @@ public class Imprimir {
         // Imprimindo dados //
 
         System.out.println("\n\n\n\n =========== Chefs ===========");
-        System.out.println(chefUm);
-        System.out.println(chefDois);
-        System.out.println(chefTres);
+        System.out.println(chefUm.carteira());
+        System.out.println(chefDois.carteira());
+        System.out.println(chefTres.carteira());
 
         System.out.println("\n\n\n\n =========== Clientes =========== \n");
         System.out.println(clienteUm);
