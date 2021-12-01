@@ -1,4 +1,4 @@
-    package Provas.ProvaDoisss;
+package Provas.ProvaDoisss;
 import java.util.ArrayList;
 public class Padaria {
     int id;
