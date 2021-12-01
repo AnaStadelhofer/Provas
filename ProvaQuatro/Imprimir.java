@@ -1,10 +1,5 @@
-import java.sql.Connection;
+
 import java.sql.Date;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.Scanner;
 
 public class Imprimir {
@@ -39,7 +34,56 @@ public class Imprimir {
             switch(escolha) {
                 // Cadastro de cliente
                 case 1:
-                System.out.println("\n Cadastrar cliente! \n\n");
+                    System.out.println("\n Cadastrar cliente! \n\n");
+                    try{
+                        System.out.println("\n Nome: ");
+                        nomeSetar = print.next();
+                    } catch(Exception e){
+                        System.out.println(e.getMessage());
+                    }
+                    try{
+                        System.out.println("\n Cpf: ");
+                        cpfSetar = print.next();
+                    } catch(Exception e){
+                        System.out.println(e.getMessage());
+                    }
+                    try{
+                        System.out.println("\n Data de Nascimento: ");
+                        dataNascSetar = print.next();
+                    } catch(Exception e){
+                        System.out.println(e.getMessage());
+                    }
+                    try{
+                        System.out.println("\n Telefone: ");
+                        telefoneSetar = print.next();
+                    } catch(Exception e){
+                        System.out.println(e.getMessage());
+                    }
+                    // Vai chamar o metodo para realizar o cadastro do cliente
+                    try{
+                        Cliente cliente = new Cliente(id, nomeSetar, cpfSetar, Date.valueOf(dataNascSetar), telefoneSetar);
+                        Cliente.insertCliente(cliente);
+                    }catch(Exception e){
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+
+                // EDITAR CLIENTE
+                case 2:
+                    System.out.println("\n\n Editar cliente! ");
+                    try{
+                        System.out.println("\n Informe o id do cliente que deseja editar! ");
+                        id = print.nextInt();
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                    // Verifica se o cliente existe no banco
+                    try{
+                        Cliente.selectClienteId(id);
+                    }catch(Exception e){
+                        System.out.println(e.getMessage());
+                    }
+                    // Pergunta os campos para fazer o update se o cliente existe
                     try{
                         System.out.println("\n Nome: ");
                         nomeSetar = print.next();
@@ -65,16 +109,11 @@ public class Imprimir {
                         System.out.println(e.getMessage());
                     }
                     try{
-                        Cliente cliente = new Cliente(id, nomeSetar, cpfSetar, Date.valueOf(dataNascSetar), telefoneSetar);
-                        Cliente.setCliente(cliente);
-                        }catch(Exception e){
-                            System.out.println(e.getMessage());
-                        }
-                    break;
-
-                // EDITAR CLIENTE
-                case 2:
-
+                        Cliente cliente2 = new Cliente(id, nomeSetar, cpfSetar, Date.valueOf(dataNascSetar), telefoneSetar);
+                        Cliente.updateCliente(cliente2);
+                    }catch(Exception e){
+                        System.out.println(e.getMessage());
+                    }
                     break;
 
                 // DELETAR CLIENTE
@@ -87,46 +126,18 @@ public class Imprimir {
                         System.out.println(e.getMessage());
                     }
                     try{
-                        final String url = "jdbc:mysql://localhost:3306/bdpadocks?useTimezone=true&serverTimezone=UTC";
-                        final String user = "root";
-                        final String password = "";     
-                        Connection con = DriverManager.getConnection(url, user, password);
-                        Statement statement = con.createStatement();
-                        boolean sql = statement.execute("DELETE FROM cliente WHERE idcliente = "+ id);
-                        if(!sql){
-                            System.out.println("\n Operação efetuada com sucesso! ");
-                        } else {
-                            System.out.println("\n Deu ruim! ");
-                        }
-                        con.close();
-                        } catch (SQLException e) {
-                            System.out.println(e.getMessage());
-                        }
-
+                        Cliente.deleteCliente(id);
+                    }catch(Exception e){
+                        System.out.println(e.getMessage());
+                    }
                     break;
 
                 // SELECIONAR TODOS CLIENTES
                 case 4:
                     System.out.println("\n\n Selecionar clientes! ");
-                    try {
-                        final String url = "jdbc:mysql://localhost:3306/bdpadocks?useTimezone=true&serverTimezone=UTC";
-                        final String user = "root";
-                        final String password = "";
-    
-                        Connection con = DriverManager.getConnection(url, user, password);
-                        Statement statement = con.createStatement();
-                        ResultSet results = statement.executeQuery("SELECT * FROM cliente");
-                        while (results.next()) {
-                            Cliente cliente = new Cliente(
-                                results.getInt("idcliente"),
-                                results.getString("nome"), 
-                                results.getString("cpf"), 
-                                results.getDate("data_nascimento"),
-                                results.getString("telefone"));
-                            System.out.println(cliente);
-                        }
-                        con.close();
-                    } catch (SQLException e) {
+                    try{
+                        Cliente.selectCliente();
+                    }catch(Exception e){
                         System.out.println(e.getMessage());
                     }
                     break;
@@ -134,6 +145,55 @@ public class Imprimir {
                 // EDITAR CHEF
                 case 5:
                     System.out.println("\n\n Editar chef! ");
+                    try{
+                        System.out.println("\n Informe o id do chef que deseja editar! ");
+                        id = print.nextInt();
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                    try{
+                        // Faz a validação se o chef existe
+                        Chef.selectClienteId(id);
+                    } catch(Exception e){
+                        System.out.println(e.getMessage());
+                    }
+                    // Pega os campos para o update e faz se ele passou na validação
+                    try{
+                        System.out.println("\n Nome: ");
+                        nomeSetar = print.next();
+                    } catch(Exception e){
+                        System.out.println(e.getMessage());
+                    }
+                    try{
+                        System.out.println("\n Cpf: ");
+                        cpfSetar = print.next();
+                    } catch(Exception e){
+                        System.out.println(e.getMessage());
+                    }
+                    try{
+                        System.out.println("\n Data de Nascimento: ");
+                        dataNascSetar = print.next();
+                    } catch(Exception e){
+                        System.out.println(e.getMessage());
+                    }
+                    try{
+                        System.out.println("\n Especialidade: ");
+                        especialidade = print.next();
+                    } catch(Exception e){
+                        System.out.println(e.getMessage());
+                    }
+                    try{
+                        System.out.println("\n Salario: ");
+                        salario = print.nextDouble();
+                    } catch(Exception e){
+                        System.out.println(e.getMessage());
+                    }
+                    try{
+                        Chef chef = new Chef(id, nomeSetar, cpfSetar, Date.valueOf(dataNascSetar), especialidade, salario);
+                        Chef.updateChef(chef);
+                    } catch(Exception e){
+                        System.out.println(e.getMessage());
+                    }
                     break;
                 
                 // DELETAR CHEF
@@ -146,122 +206,69 @@ public class Imprimir {
                         System.out.println(e.getMessage());
                     }
                     try{
-                        final String url = "jdbc:mysql://localhost:3306/bdpadocks?useTimezone=true&serverTimezone=UTC";
-                        final String user = "root";
-                        final String password = "";     
-                        Connection con = DriverManager.getConnection(url, user, password);
-                        Statement statement = con.createStatement();
-                        boolean sql = statement.execute("DELETE FROM chef WHERE idchef = "+ id);
-                        if(!sql){
-                            System.out.println("\n Operação efetuada com sucesso! ");
-                        } else {
-                            System.out.println("\n Deu ruim! ");
-                        }
-                        con.close();
-                        } catch (SQLException e) {
-                            System.out.println(e.getMessage());
-                        }
-
+                        Chef.deleteChef(id);
+                    } catch(Exception e){
+                        System.out.println(e.getMessage());
+                    }
                     break;
 
                 // SELECIONAR TODOS CHEF
                 case 7:
                     System.out.println("\n\n Selecionar chefs! ");
-                    try {
-                        final String url = "jdbc:mysql://localhost:3306/bdpadocks?useTimezone=true&serverTimezone=UTC";
-                        final String user = "root";
-                        final String password = "";
-    
-                        Connection con = DriverManager.getConnection(url, user, password);
-                        Statement statement = con.createStatement();
-                        ResultSet results = statement.executeQuery("SELECT * FROM chef");
-                        while (results.next()) {
-                            Chef chef = new Chef(
-                                results.getInt("idchef"),
-                                results.getString("nome"), 
-                                results.getString("cpf"), 
-                                results.getDate("data_nascimento"),
-                                results.getString("especialidade"),
-                                results.getDouble("salario"));
-                            System.out.println(chef);
-                        }
-                        con.close();
-                    } catch (SQLException e) {
+                    try{
+                        Chef.selectChef();
+                    } catch(Exception e) {
                         System.out.println(e.getMessage());
                     }
                     break;
 
-                //
+                // Cadastrar chef
                 case 8:
                     System.out.println("\n\n Cadastrar chef! ");
                     try{
-                            System.out.println("\n Nome: ");
-                            nomeSetar = print.next();
-                        } catch(Exception e){
-                            System.out.println(e.getMessage());
-                        }
-                        try{
-                            System.out.println("\n Cpf: ");
-                            cpfSetar = print.next();
-                        } catch(Exception e){
-                            System.out.println(e.getMessage());
-                        }
-                        try{
-                            System.out.println("\n Data de Nascimento: ");
-                            dataNascSetar = print.next();
-                        } catch(Exception e){
-                            System.out.println(e.getMessage());
-                        }
-                        try{
-                            System.out.println("\n Especialidade: ");
-                            especialidade = print.next();
-                        } catch(Exception e){
-                            System.out.println(e.getMessage());
-                        }
-                        try{
-                            System.out.println("\n Salario: ");
-                            salario = print.nextDouble();
-                            } catch(Exception e){
-                                System.out.println(e.getMessage());
-                            }
-                        try{
-                        }catch(Exception e){
-                            System.out.println(e.getMessage());
-                        }
-                        try {
-                            final String url = "jdbc:mysql://localhost:3306/bdpadocks?useTimezone=true&serverTimezone=UTC";
-                            final String user = "root";
-                            final String password = "";
-        
-                            Connection con = DriverManager.getConnection(url, user, password);
-                            PreparedStatement Statement = con.prepareStatement(
-                                "Insert into chef (idchef, nome, cpf, data_nascimento, especialidade, salario) VALUES (null, ?, ?, ?, ?, ?)", PreparedStatement.RETURN_GENERATED_KEYS);
-                            
-                            Statement.setString(1, nomeSetar);
-                            Statement.setString(2, cpfSetar);
-                            Statement.setDate(3, Date.valueOf(dataNascSetar));
-                            Statement.setString(4, especialidade);
-                            Statement.setDouble(5, salario);
-                            
-                            if(Statement.executeUpdate() > 0){
-                                ResultSet resultado = Statement.getGeneratedKeys();
-                                if(resultado.next()){
-                                    resultado.getString(1);
-                                    resultado.getString(2);
-                                    resultado.getDate(3);
-                                    resultado.getString(4);
-                                    resultado.getDouble(5);
-                                }
-                            }
-                            System.out.println("\n Chef Cadastrado! ");
-                            con.close();
-                        } catch (SQLException e) {
-                            System.out.println(e.getMessage());
-                        }
+                        System.out.println("\n Nome: ");
+                        nomeSetar = print.next();
+                    } catch(Exception e){
+                        System.out.println(e.getMessage());
+                    }
+                    try{
+                        System.out.println("\n Cpf: ");
+                        cpfSetar = print.next();
+                    } catch(Exception e){
+                        System.out.println(e.getMessage());
+                    }
+                    try{
+                        System.out.println("\n Data de Nascimento: ");
+                        dataNascSetar = print.next();
+                    } catch(Exception e){
+                        System.out.println(e.getMessage());
+                    }
+                    try{
+                        System.out.println("\n Especialidade: ");
+                        especialidade = print.next();
+                    } catch(Exception e){
+                        System.out.println(e.getMessage());
+                    }
+                    try{
+                        System.out.println("\n Salario: ");
+                        salario = print.nextDouble();
+                    } catch(Exception e){
+                        System.out.println(e.getMessage());
+                    }
+                    try{
+                        Chef chef = new Chef(id, nomeSetar, cpfSetar, Date.valueOf(dataNascSetar), especialidade, salario);
+                        Chef.insertChef(chef);
+                    }catch(Exception e){
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                    default:
+                        System.out.println("\n Operação inválida");
                     break;
             }
         } while(escolha != 0);
         print.close();
+         /*
         // Cadastrando dados ficticios //
         ///////////// Padarias ///////////
         Padaria padariaUm = new Padaria(1, "Damasko", "10/10/2020", 1, 1234, "Noel Rosa", 77423402, "Vila Nova", "Joinville", "07:00 das 12:00 e 13:00 das 18:00");
@@ -269,7 +276,7 @@ public class Imprimir {
         Padaria padariaTres = new Padaria(3, "Pãonificadora", "08/02/1980", 3, 262, "Glorificado Seja", 29706720, "Gloria", "Joinville", "07:00 das 12:00 e 13:00 das 18:00");
 
         //////////// Chef ///////////////
-        /*
+       
         Chef chefUm = new Chef(10, "Sebastião Nathan Otávio Rodrigues", "214.130.351-67", 10021998, "Padeiro", 1500.00);
         Chef chefDois = new Chef(11, "Vitor Bryan Tomás Vieira", "406.815.583-69", "08/02/1987", "Confeiteiro", 1500.00);
         Chef chefTres = new Chef(12, "Josefa Luciana Drumond", "579.320.937-91", "30/06/1995", "Decorador de Bolo", 1500.00);
@@ -363,5 +370,41 @@ public class Imprimir {
         System.out.println(mercadoTres);
         */
         System.out.println("\n\n\n\n");
+    }
+
+    public static Cliente digitarValoresCliente(){
+        int id = 0;
+        String nomeSetar = "";
+        String cpfSetar = "";
+        String dataNascSetar = "";
+        String telefoneSetar = "";
+        Scanner print = new Scanner(System.in);
+        try{
+            System.out.println("\n Nome: ");
+            nomeSetar = print.next();
+        } catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+        try{
+            System.out.println("\n Cpf: ");
+            cpfSetar = print.next();
+        } catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+        try{
+            System.out.println("\n Data de Nascimento: ");
+            dataNascSetar = print.next();
+        } catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+        try{
+            System.out.println("\n Telefone: ");
+            telefoneSetar = print.next();
+        } catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+        print.close();
+
+        return new Cliente(id, nomeSetar, cpfSetar, Date.valueOf(dataNascSetar), telefoneSetar);
     }
 }

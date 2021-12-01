@@ -1,4 +1,3 @@
-
 import java.util.Objects;
 import java.sql.Connection;
 import java.sql.Date;
@@ -8,9 +7,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 public class Cliente extends Pessoas {
-    private String telefone;
 
+    private String telefone;
     private ArrayList<Receita> receitasCliente = new ArrayList<>();
+    private final static String url = "jdbc:mysql://localhost:3306/bdpadocks?useTimezone=true&serverTimezone=UTC";
+    private final static String user = "root";
+    private final static String password = "";
+
 
     public Cliente(int id, String nome, String cpf, Date dataNascimento, String telefone) {
         super(id, nome, cpf, dataNascimento);
@@ -66,16 +69,91 @@ public class Cliente extends Pessoas {
                 "\n =========== Receitas Compradas =========== \n " + getReceita() + "\n\n";
 	}
 
-    public static void setCliente(Cliente cliente) throws Exception {
-        try{
-            final String url = "jdbc:mysql://localhost:3306/bdpadocks?useTimezone=true&serverTimezone=UTC";
-            final String user = "root";
-            final String password = "";
-                
+    // METODO PARA CADASTRAR CLIENTE - STATEMENT
+    public static void insertCliente(Cliente cliente) throws Exception {
+        try{      
             Connection con = DriverManager.getConnection(url, user, password);
             Statement statement = con.createStatement();
                 
             boolean sql = statement.execute("Insert into cliente (nome, cpf, data_nascimento, telefone) VALUES ('"+cliente.getNome()+"', '"+cliente.getCpf()+"', '"+cliente.getDataNascimento()+"', '"+cliente.getTelefone()+"')");
+            if(!sql){
+                System.out.println("\n Operação efetuada com sucesso! ");
+            } else {
+                System.out.println("\n Deu ruim! ");
+            }
+            con.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    // METODO PARA SELECIONAR TODOS CLIENTES - STATEMENT
+    public static void selectCliente() throws Exception {
+        try {
+            Connection con = DriverManager.getConnection(url, user, password);
+            Statement statement = con.createStatement();
+            ResultSet results = statement.executeQuery("SELECT * FROM cliente");
+            while (results.next()) {
+                Cliente cliente = new Cliente(
+                    results.getInt("idcliente"),
+                    results.getString("nome"), 
+                    results.getString("cpf"), 
+                    results.getDate("data_nascimento"),
+                    results.getString("telefone"));
+                System.out.println(cliente);
+            }
+            con.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    // METODO PARA EDITAR O CLIENTE INFORMADO
+    public static void updateCliente(Cliente cliente) throws Exception {
+        try{
+            Connection con = DriverManager.getConnection(url, user, password);
+            Statement statement = con.createStatement();
+            
+            Boolean sql = statement.execute(
+                "UPDATE cliente SET nome = '"+cliente.getNome()+"', cpf = '"+cliente.getCpf()+"', data_nascimento = '"+cliente.getDataNascimento()+"', telefone = '"+cliente.getTelefone()+"' WHERE idcliente = "+cliente.getId()+"");
+            if(!sql){
+                System.out.println("\n Operação efetuada com sucesso! ");
+            } else {
+                System.out.println("\n Deu ruim! ");
+            }
+            con.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    // METODO PARA SELECIONAR CLIENTE ESPECIFICO
+    public static void selectClienteId(int id) throws Exception {
+        try{     
+            Connection con = DriverManager.getConnection(url, user, password);
+            Statement stm = con.createStatement();
+            ResultSet result = stm.executeQuery("SELECT * FROM cliente WHERE idcliente = " + id);
+            if(!result.next()) {
+               System.out.println("\n Usuário não existe");
+            }
+            new Cliente(
+                result.getInt("idcliente"),
+                result.getString("nome"), 
+                result.getString("cpf"), 
+                result.getDate("data_nascimento"),
+                result.getString("telefone"));
+            con.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    // METODO PARA DELETAR O CLIENTE INFORMADO
+    public static void deleteCliente(int id) throws Exception {
+        try{
+            Connection con = DriverManager.getConnection(url, user, password);
+            Statement statement = con.createStatement();
+            boolean sql = statement.execute("DELETE FROM cliente WHERE idcliente = "+ id);
             if(!sql){
                 System.out.println("\n Operação efetuada com sucesso! ");
             } else {
