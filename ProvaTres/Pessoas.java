@@ -1,6 +1,6 @@
 package Provas.ProvaTres;
 import java.util.Objects;
-public abstract class Pessoas {
+public class Pessoas {
     private int id;
     private String nome;
     private String cpf;
@@ -45,6 +45,7 @@ public abstract class Pessoas {
         return dataNascimento;
     }
 
+    @Override
     public boolean equals(Object obj) {
         if (obj == this)
             return true;
@@ -54,11 +55,17 @@ public abstract class Pessoas {
         Pessoas pessoas = (Pessoas) obj;
         return Objects.equals(cpf, pessoas.cpf);
     }
- 
+
+    @Override
     public int hashCode() {
         return Objects.hash(nome, cpf, dataNascimento);
     }
 
-    public abstract String toString();
+    public String toString(){
+		return "\n O id da pessoa é: " + getId() +
+                "\n O nome da pessoa é: " + getNome() +
+                "\n O cpf é: " + getCpf() +
+                "\n A data de nascimento é: " + getDataNascimento() + "\n\n";
+	}
 
 }

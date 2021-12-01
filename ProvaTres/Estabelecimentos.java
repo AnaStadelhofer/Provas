@@ -1,6 +1,6 @@
 package Provas.ProvaTres;
 import java.util.Objects;
-public abstract class Estabelecimentos {
+public class Estabelecimentos {
     private int idEsta;
     private String nome;
     private String dataDeAbertura;
