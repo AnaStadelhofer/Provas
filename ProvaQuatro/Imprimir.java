@@ -371,40 +371,4 @@ public class Imprimir {
         */
         System.out.println("\n\n\n\n");
     }
-
-    public static Cliente digitarValoresCliente(){
-        int id = 0;
-        String nomeSetar = "";
-        String cpfSetar = "";
-        String dataNascSetar = "";
-        String telefoneSetar = "";
-        Scanner print = new Scanner(System.in);
-        try{
-            System.out.println("\n Nome: ");
-            nomeSetar = print.next();
-        } catch(Exception e){
-            System.out.println(e.getMessage());
-        }
-        try{
-            System.out.println("\n Cpf: ");
-            cpfSetar = print.next();
-        } catch(Exception e){
-            System.out.println(e.getMessage());
-        }
-        try{
-            System.out.println("\n Data de Nascimento: ");
-            dataNascSetar = print.next();
-        } catch(Exception e){
-            System.out.println(e.getMessage());
-        }
-        try{
-            System.out.println("\n Telefone: ");
-            telefoneSetar = print.next();
-        } catch(Exception e){
-            System.out.println(e.getMessage());
-        }
-        print.close();
-
-        return new Cliente(id, nomeSetar, cpfSetar, Date.valueOf(dataNascSetar), telefoneSetar);
-    }
 }
