@@ -1,4 +1,5 @@
 package model;
+import java.sql.Date;
 import java.util.ArrayList;
 
 public class Leao extends Animal {
@@ -71,4 +72,5 @@ public class Leao extends Animal {
                "\n\n --> Id da Jaula: " + getJaula() +
                "\n\n --> Alimentações: " + getAlimentacao();
     }
+    
 }

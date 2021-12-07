@@ -50,17 +50,6 @@ public class Pesquisa {
             switch(escolha) {
                 case 1:
                     System.out.println("\n Você escolheu: Alterar Golfinho");
-                    try{
-                        System.out.println("\n Informe o id do chef que deseja excluir! ");
-                        id = print.nextInt();
-                    } catch (Exception e) {
-                        System.out.println(e.getMessage());
-                    }
-                    try{
-                        view.DeletarLeao.deleteLeao(id);
-                    } catch(Exception e){
-                        System.out.println(e.getMessage());
-                    }
                 break;
                 case 2:
                     System.out.println("\n Você escolheu: Alterar Leão");
@@ -79,9 +68,31 @@ public class Pesquisa {
                 break;
                 case 7:
                     System.out.println("\n Você escolheu: Deletar Golfinho");
+                    try{
+                        System.out.println("\n Informe o id do Golfinho que deseja excluir! ");
+                        id = print.nextInt();
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                    try{
+                        view.DeletarGolfinho.deleteGolfinho(id);
+                    } catch(Exception e){
+                        System.out.println(e.getMessage());
+                    }
                 break;
                 case 8:
                     System.out.println("\n Você escolheu: Deletar Leão");
+                    try{
+                        System.out.println("\n Informe o id do leão que deseja excluir! ");
+                        id = print.nextInt();
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                    try{
+                        view.DeletarLeao.deleteLeao(id);
+                    } catch(Exception e){
+                        System.out.println(e.getMessage());
+                    }
                 break;
                 case 9:
                     System.out.println("\n Você escolheu: Selecionar Golfinho");
