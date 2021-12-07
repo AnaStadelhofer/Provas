@@ -3,8 +3,6 @@ package model;
 public class Jaula {
     private int idJaula;
     private String descricao;
-    private Golfinho golfinho;
-    private Leao leao;
 
     protected Jaula(int idJaula, String descricao){
         this.idJaula = idJaula;

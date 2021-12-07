@@ -1,7 +1,5 @@
 package model;
 
-import java.sql.Date;
-
 public class Treinamento {
     private int idTreinamento;
     private String dataTreinamento;
