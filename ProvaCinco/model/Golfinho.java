@@ -32,6 +32,37 @@ public class Golfinho extends Animal {
     }
 
     @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = super.hashCode();
+        result = prime * result + ((jaula == null) ? 0 : jaula.hashCode());
+        result = prime * result + ((treinamentos == null) ? 0 : treinamentos.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (!super.equals(obj))
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Golfinho other = (Golfinho) obj;
+        if (jaula == null) {
+            if (other.jaula != null)
+                return false;
+        } else if (!jaula.equals(other.jaula))
+            return false;
+        if (treinamentos == null) {
+            if (other.treinamentos != null)
+                return false;
+        } else if (!treinamentos.equals(other.treinamentos))
+            return false;
+        return true;
+    }
+
+    @Override
     public String toString() {
         return "\n Id Animal: " + getIdAnimal() + 
                "\n Nome do Animal: " + getNomeAnimal() +
