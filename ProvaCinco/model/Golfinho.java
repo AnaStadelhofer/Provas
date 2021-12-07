@@ -1,9 +1,9 @@
 package model;
-
 import java.util.ArrayList;
 
 public class Golfinho extends Animal {
     private Jaula jaula;
+
     private ArrayList<Treinamento> treinamentos = new ArrayList<>();
 
     public Golfinho(int idAnimal, String nomeAnimal, Jaula jaula){
@@ -67,6 +67,6 @@ public class Golfinho extends Animal {
         return "\n Id Animal: " + getIdAnimal() + 
                "\n Nome do Animal: " + getNomeAnimal() +
                "\n Id da Jaula: " + getJaula() +
-               "\n Treinamentos: " + getTreinamento();
+               "\n\n --> Treinamentos: " + getTreinamento();
     }
 }
