@@ -52,7 +52,7 @@ public class Cliente extends Pessoas {
         Cliente cliente = (Cliente) obj;
         return Objects.equals(this.getCpf(), cliente.getCpf());
     }
-
+    
     @Override
     public String toString(){
 		return "Id do cliente: " + getId() + 
