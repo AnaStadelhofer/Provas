@@ -1,11 +1,12 @@
 package model;
-
 import java.util.ArrayList;
 
 public class Leao extends Animal {
     private int visitante;
     private Jaula jaula;
+
     private ArrayList<Alimentacao> alimentacaos = new ArrayList<>();
+
     public Leao (int visitante, int idAnimal, String nomeAnimal, Jaula jaula){
        super(idAnimal, nomeAnimal);
        this.visitante = visitante;
@@ -67,8 +68,7 @@ public class Leao extends Animal {
         return "\n Id Animal: " + getIdAnimal() + 
                "\n Nome do Animal: " + getNomeAnimal() +
                "\n Nº visitante: " + getVisitante() +
-               "\n --> Id da Jaula: " + getJaula() +
-               "\n --> Alimentações: " + getAlimentacao();
+               "\n\n --> Id da Jaula: " + getJaula() +
+               "\n\n --> Alimentações: " + getAlimentacao();
     }
-
 }

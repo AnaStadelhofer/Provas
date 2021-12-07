@@ -4,6 +4,7 @@ public class Alimentacao {
     private int idAlimentacao;
     private String dataAlimentacao;
     private String detalhes;
+    
     protected Alimentacao(int idAlimentacao, String dataAlimentacao, String detalhes){
         this.idAlimentacao = idAlimentacao;
         this.dataAlimentacao = dataAlimentacao;
