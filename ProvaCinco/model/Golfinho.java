@@ -3,12 +3,24 @@ import java.util.ArrayList;
 
 public class Golfinho extends Animal {
     private Jaula jaula;
-
+    private int qtdTreinamento;
     private ArrayList<Treinamento> treinamentos = new ArrayList<>();
 
-    public Golfinho(int idAnimal, String nomeAnimal, Jaula jaula){
+    public Golfinho(int idAnimal, String nomeAnimal, int qtdTreinamento, int idJaula, String descricao){
         super(idAnimal, nomeAnimal);
-        this.jaula = jaula;
+        this.qtdTreinamento = qtdTreinamento;
+        this.jaula = new Jaula(
+            idJaula,
+            descricao
+            );
+    }
+
+    public void setQtdTreinamento(int qtdTreinamento){
+        this.qtdTreinamento = qtdTreinamento;
+    }
+
+    public int getQtdTreinamento(){
+        return qtdTreinamento;
     }
 
     public void setJaula(Jaula jaula){
