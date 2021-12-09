@@ -1,11 +1,13 @@
 package model;
 
+import java.sql.Date;
+
 public class Treinamento {
     private int idTreinamento;
-    private String dataTreinamento;
+    private Date dataTreinamento;
     private String descricao;
 
-    protected Treinamento(int idTreinamento, String dataTreinamento, String descricao){
+    protected Treinamento(int idTreinamento, Date dataTreinamento, String descricao){
         this.idTreinamento = idTreinamento;
         this.dataTreinamento = dataTreinamento;
         this.descricao = descricao;
@@ -19,11 +21,11 @@ public class Treinamento {
         this.idTreinamento = idTreinamento;
     }
 
-    public String getDataTreinamento() {
+    public Date getDataTreinamento() {
         return dataTreinamento;
     }
 
-    public void setDataTreinamento(String dataTreinamento) {
+    public void setDataTreinamento(Date dataTreinamento) {
         this.dataTreinamento = dataTreinamento;
     }
 

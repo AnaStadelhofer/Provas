@@ -1,11 +1,13 @@
 package model;
 
+import java.sql.Date;
+
 public class Alimentacao {
     private int idAlimentacao;
-    private String dataAlimentacao;
+    private Date dataAlimentacao;
     private String detalhes;
     
-    protected Alimentacao(int idAlimentacao, String dataAlimentacao, String detalhes){
+    protected Alimentacao(int idAlimentacao, Date dataAlimentacao, String detalhes){
         this.idAlimentacao = idAlimentacao;
         this.dataAlimentacao = dataAlimentacao;
         this.detalhes = detalhes;
@@ -19,11 +21,11 @@ public class Alimentacao {
         this.idAlimentacao = idAlimentacao;
     }
 
-    public String getDataAlimentacao() {
+    public Date getDataAlimentacao() {
         return dataAlimentacao;
     }
 
-    public void setDataAlimentacao(String dataAlimentacao) {
+    public void setDataAlimentacao(Date dataAlimentacao) {
         this.dataAlimentacao = dataAlimentacao;
     }
 

@@ -6,11 +6,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class DeletarGolfinho {
+    
     private final static String url = "jdbc:mysql://localhost:3306/bdzoo?useTimezone=true&serverTimezone=UTC";
     private final static String user = "root";
     private final static String password = "";
 
-    // METODO PARA DELETAR O LEAO INFORMADO
+    // METODO PARA DELETAR O GOLFINHO INFORMADO
     public static void deleteGolfinho(int id) throws Exception {
         try{ 
             Connection con = DriverManager.getConnection(url, user, password);

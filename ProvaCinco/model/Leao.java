@@ -1,17 +1,30 @@
 package model;
-import java.sql.Date;
+
 import java.util.ArrayList;
 
 public class Leao extends Animal {
     private int visitante;
+    private int qtdAlimento;
     private Jaula jaula;
 
     private ArrayList<Alimentacao> alimentacaos = new ArrayList<>();
 
-    public Leao (int visitante, int idAnimal, String nomeAnimal, Jaula jaula){
+    public Leao (int visitante, int idAnimal, String nomeAnimal, int qtdAlimento, int idJaula, String descricao){
        super(idAnimal, nomeAnimal);
        this.visitante = visitante;
-       this.jaula = jaula;
+       this.qtdAlimento = qtdAlimento;
+       this.jaula = new Jaula(
+           idJaula,
+           descricao
+           );
+    }
+
+    public int getQtdAlimento() {
+        return qtdAlimento;
+    }
+
+    public void setQtdAlimento(int qtdAlimento) {
+        this.qtdAlimento = qtdAlimento;
     }
 
     public int getVisitante() {
