@@ -3,13 +3,48 @@ package model;
 import java.sql.Date;
 import java.util.Scanner;
 
+import view.AlterarGolfinho;
+import view.AlterarLeao;
 import view.CadastrarAlimentacao;
 import view.CadastrarGolfinho;
 import view.CadastrarLeao;
 import view.CadastrarTreinamento;
+import javax.swing.*;
+import java.awt.*;
 
-public class Pesquisa {
+public class Pesquisa extends JFrame {
+    JButton alterarGolfinhoMenu = new JButton("Alterar Golfinho");
+    JButton alterarLeaoMenu = new JButton("Alterar Leão");
+    JButton cadastrarAlimentoMenu = new JButton("Cadastrar Alimento");
+    JButton cadastrarGolfinhoMenu = new JButton("Cadastrar Golfinho");
+    JButton cadastrarLeaoMenu = new JButton("Cadastrar Leão");
+    JButton cadastrarTreinamentoMenu = new JButton("Cadastrar Treinamento");
+    JButton deletarGolfinhoMenu = new JButton("Deletar Golfinho");
+    JButton deletarLeaoMenu = new JButton("Deletar Leão");
+    JButton selecionarGolfinhoMenu = new JButton("Selecionar Golfinho");
+    JButton selecionarLeaoMenu = new JButton("Selecionar Leão");
+    JButton sair = new JButton("Alterar Golfinho");
+    public Pesquisa(){
+        Container pane = this.getContentPane();
+        pane.setLayout(new FlowLayout(FlowLayout.CENTER));
+        pane.add(alterarGolfinhoMenu);
+        pane.add(alterarLeaoMenu);
+        pane.add(cadastrarAlimentoMenu);
+        pane.add(cadastrarGolfinhoMenu);
+        pane.add(cadastrarLeaoMenu);
+        pane.add(cadastrarTreinamentoMenu);
+        pane.add(deletarGolfinhoMenu);
+        pane.add(deletarLeaoMenu);
+        pane.add(selecionarGolfinhoMenu);
+        pane.add(selecionarLeaoMenu);
+        pane.add(sair);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setSize(250,400);
+        this.setResizable(false);
+        this.setVisible(true);
+    }
     public static void main(String[] args) {
+        Pesquisa janela = new Pesquisa();
         Scanner print = new Scanner(System.in);
         int escolha = 0;
         int id = 0;
@@ -44,9 +79,75 @@ public class Pesquisa {
             switch(escolha) {
                 case 1:
                     System.out.println("\n Você escolheu: Alterar Golfinho");
+                    try{
+                        System.out.println("\n Id do golfinho que deseja editar ");
+                        id = print.nextInt();
+                    } catch(Exception e){
+                        System.out.println(e.getMessage());
+                    }
+                    try{
+                        AlterarGolfinho.selectGolfinho(id);
+                    }catch(Exception e){
+                        System.out.println(e.getMessage());
+                    }
+                    try{
+                        System.out.println("\n Nome: ");
+                        nome = print.next();
+                    } catch(Exception e){
+                        System.out.println(e.getMessage());
+                    }
+                    try{
+                        System.out.println("\n Quantidade de Treinamento: ");
+                        treinamento = print.nextInt();
+                    } catch(Exception e){
+                        System.out.println(e.getMessage());
+                    }
+                    try{
+                        Jaula jaula = new Jaula(idJaula, descricao);
+                        Golfinho golfinho = new Golfinho(id, nome, treinamento, idJaula, descricao);
+                        AlterarGolfinho.updateGolfinho(golfinho, jaula);
+                    }catch(Exception e){
+                        System.out.println(e.getMessage());
+                    }
                 break;
                 case 2:
                     System.out.println("\n Você escolheu: Alterar Leão");
+                    try{
+                        System.out.println("\n Id do leão que deseja editar ");
+                        id = print.nextInt();
+                    } catch(Exception e){
+                        System.out.println(e.getMessage());
+                    }
+                    try{
+                        AlterarLeao.selectLeao(id);
+                    }catch(Exception e){
+                        System.out.println(e.getMessage());
+                    }
+                    try{
+                        System.out.println("\n Nome: ");
+                        nome = print.next();
+                    } catch(Exception e){
+                        System.out.println(e.getMessage());
+                    }
+                    try{
+                        System.out.println("\n Quantidade maxima de visitantes: ");
+                        visitante = print.nextInt();
+                    } catch(Exception e){
+                        System.out.println(e.getMessage());
+                    }
+                    try{
+                        System.out.println("\n Quantidade de Alimento por dia: ");
+                        qtdAlimento = print.nextInt();
+                    } catch(Exception e){
+                        System.out.println(e.getMessage());
+                    }
+                    try{
+                        Jaula jaula = new Jaula(idJaula, descricao);
+                        Leao leao = new Leao(visitante, id, nome, qtdAlimento, idJaula, descricao);
+                        AlterarLeao.updateLeao(leao, jaula);
+                    }catch(Exception e){
+                        System.out.println(e.getMessage());
+                    }
                 break;
                 case 3:
                     System.out.println("\n Você escolheu: Cadastrar Alimentação");
@@ -71,7 +172,7 @@ public class Pesquisa {
                     try{
                         Alimentacao alimentacao = new Alimentacao(id, Date.valueOf(data), descricao);
                         Leao leao = new Leao(visitante, id, nome, qtdAlimento, idJaula, descricao);
-                        CadastrarAlimentacao.insertAlimentação(alimentacao, leao);
+                        CadastrarAlimentacao.insertAlimentacao(alimentacao, leao);
                     }catch(Exception e){
                         System.out.println(e.getMessage());
                     }
@@ -198,7 +299,6 @@ public class Pesquisa {
                 break;
                 case 9:
                     System.out.println("\n Você escolheu: Selecionar Golfinho");
-                    System.out.println("\n Você escolheu: Selecionar Leão");
                     try{
                         Golfinho golfinho = new Golfinho(id, nome, treinamento, idJaula, descricao);
                         view.SelecionarGolfinho.selectGolfinho(golfinho);

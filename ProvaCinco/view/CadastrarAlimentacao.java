@@ -15,7 +15,7 @@ public class CadastrarAlimentacao {
     private final static String password = "";
 
     // METODO PARA CADASTRAR ALIMENTAÇÃO
-    public static void insertAlimentação(Alimentacao alimentacao, Leao leao) throws Exception {
+    public static void insertAlimentacao(Alimentacao alimentacao, Leao leao) throws Exception {
         try{      
             Connection con = DriverManager.getConnection(url, user, password);
             Statement statement = con.createStatement();
