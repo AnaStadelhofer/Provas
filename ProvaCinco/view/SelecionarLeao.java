@@ -1,9 +1,12 @@
 package view;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
+import model.Alimentacao;
 import model.Leao;
 import model.Pesquisa;
 import javax.swing.*;
@@ -50,6 +53,16 @@ public class SelecionarLeao extends JFrame{
                 results.getInt("alimentacao"),
                 results.getInt("jaula_id"),
                 results.getString("descricao"));
+
+                ResultSet resultsAlimentacao = statement.executeQuery("SELECT * FROM alimentacao WHERE leao_id = " + results.getInt("id"));
+                while (resultsAlimentacao.next()) {
+                    new Alimentacao (
+                        resultsAlimentacao.getInt("id"),
+                        Date.valueOf("1990-01-01"),
+                        resultsAlimentacao.getString("detalhes"),
+                        leao
+                    );
+                }
                 System.out.println(leao);
             }
             con.close();

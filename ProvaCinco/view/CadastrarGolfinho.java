@@ -19,8 +19,8 @@ public class CadastrarGolfinho extends JFrame{
         JLabel infoName = new JLabel("Informe o nome do golfinho: ", JLabel.CENTER);
         JButton voltar = new JButton("Voltar");
         JTextField insertName = new JTextField(15);
-        JLabel infoAlimento = new JLabel("Informe a quantidade de treinamento: ", JLabel.CENTER);
-        JTextField insertAlimento = new JTextField(15);
+        JLabel infoTreino = new JLabel("Informe a quantidade de treinamento: ", JLabel.CENTER);
+        JTextField insertTreino = new JTextField(15);
         JLabel infoDesc = new JLabel("Informe a descrição: ", JLabel.CENTER);
         JTextArea insertDesc = new JTextArea(8, 15);
         JButton cadastrar = new JButton("Cadastrar");
@@ -29,8 +29,8 @@ public class CadastrarGolfinho extends JFrame{
         pane.add(title);
         pane.add(infoName);
         pane.add(insertName);
-        pane.add(infoAlimento);
-        pane.add(insertAlimento);
+        pane.add(infoTreino);
+        pane.add(insertTreino);
         pane.add(infoDesc);
         pane.add(insertDesc);
         pane.add(cadastrar);

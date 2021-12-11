@@ -6,11 +6,15 @@ public class Alimentacao {
     private int idAlimentacao;
     private Date dataAlimentacao;
     private String detalhes;
+    private Leao leao;
     
-    protected Alimentacao(int idAlimentacao, Date dataAlimentacao, String detalhes){
+    public Alimentacao(int idAlimentacao, Date dataAlimentacao, String detalhes, Leao leao){
         this.idAlimentacao = idAlimentacao;
         this.dataAlimentacao = dataAlimentacao;
         this.detalhes = detalhes;
+        this.leao = leao;
+
+        leao.adicionarAlimentacao(this);
     }
 
     public int getIdAlimentacao() {
@@ -35,6 +39,14 @@ public class Alimentacao {
 
     public void setDetalhes(String detalhes) {
         this.detalhes = detalhes;
+    }
+
+    public Leao getLeao() {
+        return leao;
+    }
+
+    public void setLeao(Leao leao) {
+        this.leao = leao;
     }
 
     @Override
