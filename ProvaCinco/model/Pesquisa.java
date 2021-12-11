@@ -124,8 +124,6 @@ public class Pesquisa extends JFrame {
         });
 
     }
-
-    
     public static void main(String[] args) {
         Pesquisa janela = new Pesquisa();
         Scanner print = new Scanner(System.in);
@@ -253,8 +251,8 @@ public class Pesquisa extends JFrame {
                         System.out.println(e.getMessage());
                     }
                     try{
-                        Alimentacao alimentacao = new Alimentacao(id, Date.valueOf(data), descricao);
                         Leao leao = new Leao(visitante, id, nome, qtdAlimento, idJaula, descricao);
+                        Alimentacao alimentacao = new Alimentacao(id, Date.valueOf(data), descricao, leao);
                         CadastrarAlimentacao.insertAlimentacao(alimentacao, leao);
                     }catch(Exception e){
                         System.out.println(e.getMessage());
