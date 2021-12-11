@@ -2,6 +2,7 @@ package model;
 
 import java.sql.Date;
 import java.util.Scanner;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import view.AlterarGolfinho;
 import view.AlterarLeao;
@@ -9,8 +10,15 @@ import view.CadastrarAlimentacao;
 import view.CadastrarGolfinho;
 import view.CadastrarLeao;
 import view.CadastrarTreinamento;
+import view.DeletarGolfinho;
+import view.DeletarLeao;
+import view.SelecionarGolfinho;
+import view.SelecionarLeao;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Pesquisa extends JFrame {
     JButton alterarGolfinhoMenu = new JButton("Alterar Golfinho");
@@ -42,7 +50,82 @@ public class Pesquisa extends JFrame {
         this.setSize(250,400);
         this.setResizable(false);
         this.setVisible(true);
+
+        // AÇÕES DOS BOTÕES 
+        // DELETE LEAO
+        deletarLeaoMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                
+                new DeletarLeao();
+            }
+        });
+        // DELETE GOLFINHO
+        deletarGolfinhoMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                
+                new DeletarGolfinho();
+            }
+        });
+        // SELECIONA GOLFINHO
+        selecionarGolfinhoMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                
+                new SelecionarGolfinho();
+            }
+        });
+        // SELECIONA LEÃO
+        selecionarLeaoMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                
+                new SelecionarLeao();
+            }
+        });
+        // CADASTRAR TREINAMENTO
+        cadastrarTreinamentoMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                
+                new CadastrarTreinamento();
+            }
+        });
+        // CADASTRAR LEÃO
+        cadastrarLeaoMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                
+                new CadastrarLeao();
+            }
+        });
+        // CADASTRAR GOLFINHO
+        cadastrarGolfinhoMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                
+                new CadastrarGolfinho();
+            }
+        });
+        // CADASTRAR ALIMENTAÇÃO
+        cadastrarAlimentoMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                
+                new CadastrarAlimentacao();
+            }
+        });
+        // ALTERAR LEÃO
+        alterarLeaoMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                
+                new AlterarLeao();
+            }
+        });
+        // ALTERAR GOLFINHO
+        alterarGolfinhoMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                
+                new AlterarGolfinho();
+            }
+        });
+
     }
+
+    
     public static void main(String[] args) {
         Pesquisa janela = new Pesquisa();
         Scanner print = new Scanner(System.in);
