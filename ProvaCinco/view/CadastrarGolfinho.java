@@ -4,11 +4,49 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.*;
+import java.awt.*;
 
 import model.Golfinho;
 import model.Jaula;
+import model.Pesquisa;
 
-public class CadastrarGolfinho {
+public class CadastrarGolfinho extends JFrame{
+
+    // CADASTRAR GOLFINHO
+    public CadastrarGolfinho(){
+        JLabel title = new JLabel(" -- CADASTRAR GOLFINHO! -- ", JLabel.CENTER);
+        JLabel infoName = new JLabel("Informe o nome do golfinho: ", JLabel.CENTER);
+        JButton voltar = new JButton("Voltar");
+        JTextField insertName = new JTextField(15);
+        JLabel infoAlimento = new JLabel("Informe a quantidade de treinamento: ", JLabel.CENTER);
+        JTextField insertAlimento = new JTextField(15);
+        JLabel infoDesc = new JLabel("Informe a descrição: ", JLabel.CENTER);
+        JTextArea insertDesc = new JTextArea(8, 15);
+        JButton cadastrar = new JButton("Cadastrar");
+        Container pane = this.getContentPane();
+        pane.setLayout(new FlowLayout(FlowLayout.CENTER));
+        pane.add(title);
+        pane.add(infoName);
+        pane.add(insertName);
+        pane.add(infoAlimento);
+        pane.add(insertAlimento);
+        pane.add(infoDesc);
+        pane.add(insertDesc);
+        pane.add(cadastrar);
+        pane.add(voltar);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setSize(250,400);
+        this.setResizable(false);
+        this.setVisible(true);
+
+        voltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                
+                new Pesquisa();
+            }
+        });
+    }
 
     private final static String url = "jdbc:mysql://localhost:3306/bdzoo?useTimezone=true&serverTimezone=UTC";
     private final static String user = "root";
